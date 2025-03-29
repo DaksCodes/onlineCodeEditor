@@ -8,7 +8,12 @@ const os = require("os");
 const app = express();
 const PORT = process.env.port || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: "*",  // Allow all origins for now
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(bodyParser.json());
 
 // Check if running on Windows
